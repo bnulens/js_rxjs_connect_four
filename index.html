@@ -8,17 +8,20 @@
     <title>Connect Four RxJS</title>
 </head>
 <body>
-    <button id="test">Start Game !</button>
     <div class="outer-wrapper">
         <div class="inner-wrapper">
-            <div class="game-settings-wrapper">
-                <label for="game-grid-size-selector">Choose a grid size</label>
-                <select name="game-grid-size-selector" id="game-size-selector">
-                    <option class="game-grid-size-option" value="6x9">6x7</option>
-                    <option class="game-grid-size-option" value="8x7">8x7</option>
-                    <option class="game-grid-size-option" value="10x7">10x7</option>
-                    <option class="game-grid-size-option" value="8x8">8x8</option>
-                </select>
+            <div class="game-settings-wrapper" id="settings-element">
+                <button id="start-game-button">Start Game</button>
+                <div class="game-grid-size-selector-wrapper">
+                    <label for="game-grid-size-selector">Select a grid size</label>
+                    <select name="game-grid-size-selector" id="game-size-selector">
+                        <option class="game-grid-size-option" value="0">Select a game size</option>
+                        <option class="game-grid-size-option" value="6x9">6x7</option>
+                        <option class="game-grid-size-option" value="8x7">8x7</option>
+                        <option class="game-grid-size-option" value="10x7">10x7</option>
+                        <option class="game-grid-size-option" value="8x8">8x8</option>
+                    </select>
+                </div>
             </div>
             <ul class="game-grid" id="game-grid"></ul>
         </div>
