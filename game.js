@@ -2,7 +2,17 @@ import { gameGridArray } from "./grid";
 import { interval } from "rxjs";
 import { scan, map, tap, takeWhile } from "rxjs/operators";
 
+let gameMountingPoint = document.getElementById("game-mounting-point");
+let gameInterface = document.createElement("div");
 
+let gameCounterPlayerOne = document.createElement("span");
+gameCounterPlayerOne.classList.add('player-one-counter');
+let gameCounterPlayerTwo = document.createElement("span");
+gameCounterPlayerTwo.classList.add('player-two-counter');
+
+gameInterface.appendChild(gameCounterPlayerOne);
+gameInterface.appendChild(gameCounterPlayertwo);
+gameMountingPoint.appendChild(gameInterface);
 
 // Determine which player goes first + Start turn on said player
 let player1Turn;
