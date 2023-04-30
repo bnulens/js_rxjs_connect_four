@@ -2,6 +2,8 @@ import { gameGridArray } from "./grid";
 import { interval } from "rxjs";
 import { scan, map, tap, takeWhile } from "rxjs/operators";
 
+
+
 // Determine which player goes first + Start turn on said player
 let player1Turn;
 let player2Turn;
@@ -22,19 +24,36 @@ counter$
   .subscribe((value) => {
     console.log(value)
     if (!value) {
-        console.log("Start !")
-        // Determining who gets to start the game
-        let starterChance = Math.floor(Math.random() * 2);
-        if (starterChance == 0) {
-          player1Turn = true;
-          player2Turn = false
-        } else {
-          player1Turn = false
-          player2Turn = true
-        }
-        console.log("p1",player1Turn, "p2",player2Turn)
+      console.log("Start !")
+      // Determining who gets to start the game
+      let starterChance = Math.floor(Math.random() * 2);
+      if (starterChance == 0) {
+        player1Turn = true;
+        player2Turn = false
+      } else {
+        player1Turn = false
+        player2Turn = true
+      }
+      console.log("p1",player1Turn, "p2",player2Turn)
     }
 });
+
+console.log()
+
+const p1Counter$ = interval(1000);
+p1Counter$
+  .pipe(
+    map(() => -1),
+    scan((accu, curr) => {
+      return accu + curr;
+    }, 10),
+    takeWhile((value) => value >= 0)
+  )
+  .subscribe((value) => {
+    if (!value) {
+      console.log("Gamre over !")
+    }
+  });
 
 // Start countdown on player
 // Each player has a set amount of time to try and win the game (chess clock)
