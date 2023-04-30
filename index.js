@@ -35,10 +35,5 @@ gridSizeOptions.forEach(option => {
 
 startGameButton.addEventListener('click', () => {
     settingsNode.remove();
-    try {
-        loadGrid();
-    }
-    catch (error){
-        console.log(error)
-    }
+    loadGrid();
 })
